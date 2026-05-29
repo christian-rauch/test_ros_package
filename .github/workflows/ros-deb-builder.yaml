@@ -1,0 +1,15 @@
+name: deb-builder
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jspricke/ros-deb-builder-action@main
+        with:
+          DEB_DISTRO: noble
+          ROS_DISTRO: jazzy
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
